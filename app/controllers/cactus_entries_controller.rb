@@ -20,8 +20,11 @@ class CactusEntriesController < ApplicationController
     end
   end
   
-  #read 
-  
+  #read Show route 
+  get '/cactus_entries/:id' do 
+    @cactus_entry = CactusEntry.find([:id])
+    erb :'/cactus_entries/show'
+  end
   
   #update
   
