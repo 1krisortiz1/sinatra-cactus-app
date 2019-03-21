@@ -2,10 +2,15 @@ Specifications for the Sinatra Assessment
 Specs:
 
 X Use Sinatra to build the app
+  - Used Sinatra to build my app 
 X Use ActiveRecord for storing information in a database
+  - Used ActiveRecord
 X Include more than one model class (e.g. User, Post, Category)
+  - Created a user and cactus entries model
 X Include at least one has_many relationship on your User model (e.g. User has_many Posts)
+  - A user has many cactus entries
 X Include at least one belongs_to relationship on another model (e.g. Post belongs_to User)
+  - A cactus entry belongs to a user 
 X Include user accounts with unique login attribute (username or email)
  Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
  Ensure that users can't modify content created by other users
