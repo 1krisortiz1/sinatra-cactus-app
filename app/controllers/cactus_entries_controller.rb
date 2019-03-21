@@ -20,16 +20,29 @@ class CactusEntriesController < ApplicationController
   
   #read Show route 
   get '/cactus_entries/:id' do 
-    @cactus_entry = CactusEntry.find(params[:id])
+    set_cactus_entry
     erb :'/cactus_entries/show'
   end
   
   #update
   get '/cactus_entries/:id/edit' do
+    set_cactus_entry
     erb :'/cactus_entries/edit'
+  end
+  
+      # find entry, modify(update) entry, redirect?
+  patch '/cactus_entries/:id' do 
+    set_cactus_entry
+    @cactus_entry.update(content: params[:content])
+    redirect "/cactus_entries/#{@cactus_entry.id}"
   end
   
   #delete
   
+  private
+  
+  def set_cactus_entry
+    @cactus_entry = CactusEntry.find(params[:id])
+  end
   
 end
