@@ -27,14 +27,30 @@ class CactusEntriesController < ApplicationController
   #update
   get '/cactus_entries/:id/edit' do
     set_cactus_entry
-    erb :'/cactus_entries/edit'
+    if logged_in?
+      if @cactus_entry.user == current_user
+        erb :'/cactus_entries/edit'
+      else
+        redirect "users/#{current_user.id}"
+      end
+    else
+      redirect '/'
+    end
   end
   
       # find entry, modify(update) entry, redirect?
   patch '/cactus_entries/:id' do 
     set_cactus_entry
-    @cactus_entry.update(content: params[:content])
-    redirect "/cactus_entries/#{@cactus_entry.id}"
+    if logged_in?
+      if @cactus_entry.user == current_user
+        @cactus_entry.update(content: params[:content])
+        redirect "/cactus_entries/#{cactus_entry.id}"
+      else
+        redirect "users/#{current_user.id}"
+      end
+    else 
+      redirect '/'
+    end
   end
   
   #delete
