@@ -2,5 +2,8 @@
 
 <p><%= @cactus_entry.content %></p>
 
+<% if current_user == @cactus_entry.user %>
 <a href="/cactus_entries/<%= @cactus_entry.id %>/edit">Edit Entry</a>
 <a href="">Delete Entry</a>
+
+<% end %>
