@@ -1,5 +1,10 @@
 class CactusEntriesController < ApplicationController
   
+  get '/cactus_entries' do
+    @cactus_entries = CactusEntry.all 
+    erb :'cactus_entries/index'
+  end
+  
   #create
   get '/cactus_entries/new' do
     erb :'/cactus_entries/new'
