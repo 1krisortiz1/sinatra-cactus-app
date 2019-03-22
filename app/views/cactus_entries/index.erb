@@ -2,4 +2,5 @@
 <% @cactus_entries.each do |cactus_entry| %>
   <p><%= cactus_entry.content %></p>
   <h5><a href="/cactus_entries/<%= cactus_entry.id %>"><%= cactus_entry.created_at %></a></h5>
+
 <% end %>

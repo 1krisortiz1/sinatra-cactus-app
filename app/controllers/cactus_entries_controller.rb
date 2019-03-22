@@ -50,7 +50,7 @@ class CactusEntriesController < ApplicationController
     if logged_in?
       if @cactus_entry.user == current_user
         @cactus_entry.update(content: params[:content])
-        redirect "/cactus_entries/#{cactus_entry.id}"
+        redirect "/cactus_entries/#{@cactus_entry.id}"
       else
         redirect "users/#{current_user.id}"
       end
@@ -60,6 +60,17 @@ class CactusEntriesController < ApplicationController
   end
   
   #delete
+  delete '/cactus_entry/:id' do
+    set_cactus_entry
+    if logged_in?
+      if @cactus_entry.user == current_user
+        @cactus_entry.destroy
+        redirect '/cactus_entries'
+      else
+        redirect '/cactus_entries'
+      end
+    end
+  end
   
   private
   
