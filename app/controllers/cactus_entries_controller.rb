@@ -44,7 +44,6 @@ class CactusEntriesController < ApplicationController
     if logged_in?
       if @cactus_entry.user == current_user
         @cactus_entry.update(content: params[:content])
-        binding.pry
         redirect "/cactus_entries/#{cactus_entry.id}"
       else
         redirect "users/#{current_user.id}"
