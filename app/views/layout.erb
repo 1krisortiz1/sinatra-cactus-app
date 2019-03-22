@@ -15,9 +15,11 @@
   </head>
   <body>
     <div class="nav">
+      <% if logged_in? %>
       <a href="/logout">Logout</a><br/>
       <a href="/cactus_entries">Entries</a><br/>
       <a href="/cactus_entries/new">Create a new entry</a>
+      <% end %>
     </div>
     <div class="wrapper">
 

@@ -12,9 +12,12 @@ X Include at least one has_many relationship on your User model (e.g. User has_m
 X Include at least one belongs_to relationship on another model (e.g. Post belongs_to User)
   - A cactus entry belongs to a user 
 X Include user accounts with unique login attribute (username or email)
- Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
- Ensure that users can't modify content created by other users
- Include user input validations
+X Ensure that the belongs_to resource has routes for Creating, Reading,     Updating and Destroying
+  - CRUD routes used in cactusentry controller
+X Ensure that users can't modify content created by other users
+  - Users only see edit or delete when if current user owns the entry
+X Include user input validations
+  - can't create a user without name, password and email. Can't create a plank entry.
  BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
  Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
  
