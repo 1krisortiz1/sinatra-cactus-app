@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20190317032523) do
 
   create_table "cactus_entries", force: :cascade do |t|
     t.string   "content"
+    t.binary   "image"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
