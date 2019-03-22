@@ -48,7 +48,7 @@ class CactusEntriesController < ApplicationController
   patch '/cactus_entries/:id' do 
     set_cactus_entry
     if logged_in?
-      if @cactus_entry.user == current_user
+      if @cactus_entry.user == current_user && params[:content] != ""
         @cactus_entry.update(content: params[:content])
         redirect "/cactus_entries/#{@cactus_entry.id}"
       else
