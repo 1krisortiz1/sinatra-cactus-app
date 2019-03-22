@@ -60,7 +60,7 @@ class CactusEntriesController < ApplicationController
   end
   
   #delete
-  delete '/cactus_entry/:id' do
+  delete '/cactus_entries/:id' do
     set_cactus_entry
     if logged_in?
       if @cactus_entry.user == current_user
