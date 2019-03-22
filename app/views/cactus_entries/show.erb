@@ -4,6 +4,10 @@
 
 <% if current_user == @cactus_entry.user %>
 <a href="/cactus_entries/<%= @cactus_entry.id %>/edit">Edit Entry</a>
-<a href="">Delete Entry</a>
+<br><br>
+<form class="" action="/cactus_entries/<%= @cactus_entry.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" name="" value="Delete this Entry">
+</form>
 
 <% end %>
