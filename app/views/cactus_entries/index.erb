@@ -3,7 +3,7 @@
 <br>
 <br>
 <% @cactus_entries.each do |cactus_entry| %>
-  <%= cactus_entry.user.name %> says:
+  <strong><%= cactus_entry.user.name %></strong> says:
   <%= cactus_entry.content %>
   <h5><a href="/cactus_entries/<%= cactus_entry.id %>"><%= cactus_entry.created_at %></a></h5>
   <%= cactus_entry.image %>
