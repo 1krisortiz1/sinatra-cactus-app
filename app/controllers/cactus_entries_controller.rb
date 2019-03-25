@@ -17,9 +17,11 @@ class CactusEntriesController < ApplicationController
     end 
     
     if params[:content] != ""
+      flash[:message] = "Success!"
       @cactus_entry = CactusEntry.create(content: params[:content], image: params[:image], user_id: current_user.id)
       redirect "/cactus_entries/#{@cactus_entry.id}"  
     else
+      flash[:message] = "Please add content"
       redirect '/cactus_entries/new'
     end
   end
