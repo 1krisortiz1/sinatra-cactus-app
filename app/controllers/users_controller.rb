@@ -11,6 +11,7 @@ class UsersController < ApplicationController
         puts session
         redirect to "users/#{@user.id}"
       else
+        flash[:message] = "Email or Password incorrect. Please sign up or try again."
         erb :login 
     end
   end
