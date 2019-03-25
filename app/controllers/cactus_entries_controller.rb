@@ -17,7 +17,7 @@ class CactusEntriesController < ApplicationController
     end 
     
     if params[:content] != ""
-      @cactus_entry = CactusEntry.create(content: params[:content], user_id: current_user.id)
+      @cactus_entry = CactusEntry.create(content: params[:content], image: params[:image], user_id: current_user.id)
       redirect "/cactus_entries/#{@cactus_entry.id}"  
     else
       redirect '/cactus_entries/new'
@@ -48,8 +48,8 @@ class CactusEntriesController < ApplicationController
   patch '/cactus_entries/:id' do 
     set_cactus_entry
     if logged_in?
-      if @cactus_entry.user == current_user && params[:content] != ""
-        @cactus_entry.update(content: params[:content])
+      if @cactus_entry.user == current_user && params[:content] != "" && params[:image]
+        @cactus_entry.update(content: params[:content], image: params[:image])
         redirect "/cactus_entries/#{@cactus_entry.id}"
       else
         redirect "users/#{current_user.id}"
