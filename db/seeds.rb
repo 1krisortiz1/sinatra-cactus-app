@@ -7,7 +7,7 @@ grant = User.create(name: "Grant", email: "grant@grant.com", password: "password
 
 # Create some cactus entries 
 
-CactusEntry.create(content: "Kristin's picture of a cactus will be here", user_id: kristin.id)
+CactusEntry.create(image: https://cdn11.bigcommerce.com/s-oqm1pc/images/stencil/631x631/products/2606/5523/golden_ball_cactus__69115.1522882144.jpg?c=2 content: "Kristin's picture of a cactus will be here", user_id: kristin.id)
 
 # Use AR to pre-associate data: 
 
