@@ -1,7 +1,6 @@
 <h2>SHOW PAGE FOR CACTUS ENTRY</h2>
 
 <p><%= @cactus_entry.content %></p>
-<!-- <p><%= @cactus_entry.image %></p> -->
 <h3><img src="<%= @cactus_entry.image %>" name="image" alt="" height="300" width="300"></h3>
 
 <% if current_user == @cactus_entry.user %>
