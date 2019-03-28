@@ -3,7 +3,8 @@
 <% @user.cactus_entries.each do |t| %>
 <ul>
   <li>
-    <a href="/cactus_entries/<%= t.id %>"><%= t.content %></a>
+    <h3><a href="/cactus_entries/<%= t.id %>"><%= t.content %></a></h3>
+    <h3><img src="<%= t.image %>" name="image" alt="" height="300" width="300"></h3>
   </li>
 </ul><br>
 <% end %><br>
