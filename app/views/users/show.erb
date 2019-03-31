@@ -1,9 +1,12 @@
-<h1><%= @user.name %>'s cactus posts</h1>
+<h1><%= @user.name %>'s tracked cacti</h1>
 <p>Click Create a new entry to create a new entry or select All Entries to see what's going on in the cactus world!</p>
 <% @user.cactus_entries.each do |t| %>
 <ul>
   <li>
     <h3><a href="/cactus_entries/<%= t.id %>"><%= t.content %></a></h3>
+    <%= t.location %>
+    <%= t.color_flowers %>
+    <%= t.water_conservation_method %>
     <h3><img src="<%= t.image %>" name="image" alt="" height="300" width="300"></h3>
   </li>
 </ul><br>
