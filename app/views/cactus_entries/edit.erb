@@ -1,11 +1,23 @@
-Edit page for Cactus Entry
+<h1>Make your changes here!</h1>
 
 <form class="" action="/cactus_entries/<%= @cactus_entry.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
+
+  <label for="location">Add discovery location: </label>
+  <input type="text" name="location" value="<%= @cactus_entry.location %>"><br><br>
+
+  <label for="color_flowers">Add flower color: </label>
+  <input type="text" name="color_flowers" value="<%= @cactus_entry.color_flowers %>"><br><br>
+
+  <label for="water_conservation_method">Add water conservation method: </label>
+  <input type="text" name="water_conservation_method" value="<%= @cactus_entry.water_conservation_method %>"><br><br>
+
   <label for="content">Content: </label>
   <textarea name="content" rows="4" cols="50"><%= @cactus_entry.content %></textarea>
+
   <label for="image">Image: </label>
-  <input type="url" name="image" value="">
+  <input text="url" name="image" value="<%= @cactus_entry.image %>">
+
   <input type="submit" name="" value="Edit Entry">
 </form>
 
