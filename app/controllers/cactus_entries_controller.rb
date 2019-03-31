@@ -18,7 +18,8 @@ class CactusEntriesController < ApplicationController
     
     if params[:content] != ""
       flash[:message] = "Success!"
-      @cactus_entry = CactusEntry.create(content: params[:content], image: params[:image], user_id: current_user.id)
+      @cactus_entry = CactusEntry.create(location: params[:location], color_flowers: params[:color_flowers], water_conservation_method: params[:water_conservation_method], content: params[:content], image: params[:image], user_id: current_user.id)
+      
       redirect "/cactus_entries/#{@cactus_entry.id}"  
     else
       flash[:message] = "Please add content"
@@ -50,8 +51,8 @@ class CactusEntriesController < ApplicationController
   patch '/cactus_entries/:id' do 
     set_cactus_entry
     if logged_in?
-      if @cactus_entry.user == current_user && params[:content] != "" && params[:image]
-        @cactus_entry.update(content: params[:content], image: params[:image])
+      if @cactus_entry.user == current_user && params[:content] != "" && params[:image] != "" && params[:location] != "" && params[:color_flowers] != "" && params[:water_conservation_method] != ""
+        @cactus_entry.update(content: params[:content], image: params[:image], location: params[:location], color_flowers: params[:color_flowers], water_conservation_method: params[:water_conservation_method])
         redirect "/cactus_entries/#{@cactus_entry.id}"
       else
         redirect "users/#{current_user.id}"
