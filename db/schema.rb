@@ -14,11 +14,14 @@
 ActiveRecord::Schema.define(version: 20190317032523) do
 
   create_table "cactus_entries", force: :cascade do |t|
+    t.string   "location"
+    t.string   "color_flowers"
+    t.string   "water_conservation_method"
     t.string   "content"
     t.binary   "image"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "users", force: :cascade do |t|
