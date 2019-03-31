@@ -1,6 +1,9 @@
 
 
-<p><%= @cactus_entry.content %></p>
+<p><strong>Cactus Name: </strong> <%= @cactus_entry.content %></p>
+<p><strong>Placed Discovered: </strong><%= @cactus_entry.location %></p>
+<p><strong>Flower Color: </strong><%= @cactus_entry.color_flowers %></p>
+<p><strong>Water Conservation Method: </strong><%= @cactus_entry.water_conservation_method %></p>
 <h3><img src="<%= @cactus_entry.image %>" name="image" alt="" height="300" width="300"></h3>
 
 <% if current_user == @cactus_entry.user %>
