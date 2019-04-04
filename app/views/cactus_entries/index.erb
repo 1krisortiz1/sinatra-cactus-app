@@ -1,14 +1,10 @@
 <h2>Take a look at what's going on in the cactus world</h2>
-<h3>Share your tracked discoveries!</h3>
-<br>
-<br>
 <% @cactus_entries.each do |cactus_entry| %>
-  <strong><%= cactus_entry.user.name %></strong> says:
-  <%= cactus_entry.content %>
-  <h5><a href="/cactus_entries/<%= cactus_entry.id %>"><%= cactus_entry.created_at %></a></h5>
-  <%= cactus_entry.location %>
-  <%= cactus_entry.color_flowers %>
-  <%= cactus_entry.water_conservation_method %>
+  <strong><a href="/cactus_entries/<%= cactus_entry.id %>"><%= cactus_entry.user.name %> discovered a <%= cactus_entry.content %></strong></a><br>
+  <strong>Cactus tracked on:</strong> <%= cactus_entry.created_at %><br>
+  <strong>Cactus location:</strong> <%= cactus_entry.location %><br>
+  <strong>Bloom status:</strong> <%= cactus_entry.color_flowers %><br>
+  <strong>Protection and water conservation:</strong> <%= cactus_entry.water_conservation_method %>
   <h3><img src="<%= cactus_entry.image %>" name="image" alt="" height="300" width="300"></h3>
   <br><br>
 <% end %>
