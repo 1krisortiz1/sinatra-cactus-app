@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
         puts session
-        flash[:message] = "Welcome, #{@user.name}! What's new in your cactus world?" 
+        flash[:message] = "Welcome, #{@user.name}!" 
         redirect to "users/#{@user.id}"
       else
         flash[:error] = "Email or Password incorrect. Please sign up or try again."
@@ -22,7 +22,6 @@ class UsersController < ApplicationController
   end
   
   post '/users' do
-    
     if params[:name] != "" && params[:email] != "" && params[:password] != ""
       @user = User.create(params)
       session[:user_id] = @user.id 
