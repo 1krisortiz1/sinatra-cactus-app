@@ -13,5 +13,5 @@ CactusEntry.create(image: "https://cdn11.bigcommerce.com/s-oqm1pc/images/stencil
 
 kristin.cactus_entries.create(content: "We are building a Sinatra Cactus App! Go Cacti!")
 
-grants_entry = grant.cactus_entries.build(content: "I don't know what Sinatra is!")
+grants_entry = grant.cactus_entries.build(content: "Prickly Pear Cactus", location: "Yuma, AZ", color_flowers: "Prickly Pear fruit present!", water_conservation_method: "Paddle stems")
 grants_entry.save 
