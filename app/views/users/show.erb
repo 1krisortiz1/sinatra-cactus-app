@@ -4,9 +4,9 @@
 <ul>
   <li>
     <h3><a href="/cactus_entries/<%= t.id %>"><%= t.content %></a></h3>
-    <%= t.location %>
-    <%= t.color_flowers %>
-    <%= t.water_conservation_method %>
+    <strong>Discovery Location: </strong><%= t.location %></br>
+    <strong>Flowers: </strong><%= t.color_flowers %></br>
+    <strong>Water Conservation Method: </strong><%= t.water_conservation_method %>
     <h3><img src="<%= t.image %>" name="image" alt="" height="300" width="300"></h3>
   </li>
 </ul><br>
