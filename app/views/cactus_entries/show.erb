@@ -1,17 +1,17 @@
 
 
 <strong>Cactus Name: </strong> <%= @cactus_entry.content %><br>
-<strong>Placed Discovered: </strong><%= @cactus_entry.location %><br>
+<strong>Discovery Location: </strong><%= @cactus_entry.location %><br>
 <strong>Flower Color: </strong><%= @cactus_entry.color_flowers %><br>
 <strong>Water Conservation Method: </strong><%= @cactus_entry.water_conservation_method %>
 <h3><img src="<%= @cactus_entry.image %>" name="image" alt="" height="300" width="300"></h3>
 
 <% if current_user == @cactus_entry.user %>
-<a href="/cactus_entries/<%= @cactus_entry.id %>/edit">Edit Entry</a>
+<a href="/cactus_entries/<%= @cactus_entry.id %>/edit">Edit Discovery</a>
 <br><br>
 <form class="" action="/cactus_entries/<%= @cactus_entry.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit" name="" value="Delete this Entry">
+  <input type="submit" name="" value="Delete this Discovery">
 </form>
 
 <% end %>
