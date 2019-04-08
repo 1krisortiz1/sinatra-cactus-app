@@ -16,13 +16,13 @@ class CactusEntriesController < ApplicationController
       redirect '/'
     end 
     
-    if params[:content] != ""
+    if params[:content] != "" && params[:image] != "" && params[:location] != "" && params[:color_flowers] != "" && params[:water_conservation_method] != ""
       flash[:message] = "Success!"
       @cactus_entry = CactusEntry.create(location: params[:location], color_flowers: params[:color_flowers], water_conservation_method: params[:water_conservation_method], content: params[:content], image: params[:image], user_id: current_user.id)
       
       redirect "/cactus_entries/#{@cactus_entry.id}"  
     else
-      flash[:message] = "Please add content"
+      flash[:error] = "Please complete all fields"
       redirect '/cactus_entries/new'
     end
   end
