@@ -12,10 +12,8 @@ class CactusEntriesController < ApplicationController
   end 
   
   post '/cactus_entries' do
-    if !logged_in?
-      redirect '/'
-    end 
-    
+    redirect_if_not_logged_in 
+
     if params[:content] != "" && params[:image] != "" && params[:location] != "" && params[:color_flowers] != "" && params[:water_conservation_method] != ""
       flash[:message] = "Success!"
       @cactus_entry = CactusEntry.create(location: params[:location], color_flowers: params[:color_flowers], water_conservation_method: params[:water_conservation_method], content: params[:content], image: params[:image], user_id: current_user.id)
@@ -36,14 +34,11 @@ class CactusEntriesController < ApplicationController
   #update
   get '/cactus_entries/:id/edit' do
     set_cactus_entry
-    if logged_in?
-      if @cactus_entry.user == current_user
-        erb :'/cactus_entries/edit'
-      else
-        redirect "users/#{current_user.id}"
-      end
+    redirect_if_not_logged_in
+    if @cactus_entry.user == current_user
+      erb :'/cactus_entries/edit'
     else
-      redirect '/'
+      redirect "users/#{current_user.id}"
     end
   end
   
@@ -81,4 +76,10 @@ class CactusEntriesController < ApplicationController
     @cactus_entry = CactusEntry.find(params[:id])
   end
   
+  def redirect_if_not_logged_in
+    if !logged_in?
+      redirect '/'
+    end
+  end
+
 end
