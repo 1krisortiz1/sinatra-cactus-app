@@ -23,6 +23,10 @@ class UsersController < ApplicationController
   
   post '/users' do
     if params[:name] != "" && params[:email] != "" && params[:password] != ""
+      if @user = User.find_by(email: params[:email])
+        flash[:message] = "You already have an account, please log in."
+        redirect '/login'
+      end
       @user = User.create(params)
       session[:user_id] = @user.id 
       flash[:message] = "You've successfully created an account, #{@user.name}! Welcome!"
