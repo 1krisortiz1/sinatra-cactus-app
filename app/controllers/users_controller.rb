@@ -5,15 +5,15 @@ class UsersController < ApplicationController
   end
   
   post '/login' do
-      @user = User.find_by(email: params[:email])
-      if @user && @user.authenticate(params[:password])
-        session[:user_id] = @user.id
-        puts session
-        flash[:message] = "Welcome, #{@user.name}!" 
-        redirect to "users/#{@user.id}"
-      else
-        flash[:error] = "Email or Password incorrect. Please sign up or try again."
-        erb :login 
+    @user = User.find_by(email: params[:email])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      puts session
+      flash[:message] = "Welcome, #{@user.name}!" 
+      redirect to "users/#{@user.id}"
+    else
+      flash[:error] = "Email or Password incorrect. Please sign up or try again."
+      redirect '/login' 
     end
   end
   
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       redirect "/users/#{@user.id}"
     else  
       flash[:error] = "Must enter a Name, Email, and Password. Please try again."
-      erb :signup
+      redirect '/signup'
     end
   end 
   
