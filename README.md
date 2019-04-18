@@ -1,35 +1,23 @@
-Cactus Application Project
-	[X] 1. Build an MVC Sinatra application.
-	[X] 2. Use ActiveRecord with Sinatra.
-	[X] 3. Use multiple models.
-		- User and cactus_entry models
-	[X] 4. Use at least one has_many relationship on a User model and 			   one belongs_to relationship on another model.
-		- User model has_many cactus_entries
-		- Cactus_Entry model belongs_to a user
-	[X] 5. Must have user accounts - users must be able to sign up, sign in, and sign out.
-		- User can sign up, sign in, and sign out
-	[X] 6. Validate uniqueness of user login attribute (username or email).
-		- User is authenicated using the authenticate method at log in.
-	[X] 7. Once logged in, a user must have the ability to create, read, update and destroy the resource that belongs_to user.
-		- User can create, read, updated, and destroy only their logs.
-	[X] 8. Ensure that users can edit and delete only their own resources - not resources created by other users.
-		- Using the current_user helper method to verify the user in the current session.  If current user then user is able to edit and delete.
-	[X] 9. Validate user input so bad data cannot be persisted to the database.
-	[X] 10. BONUS: Display validation failures to user with error messages. (This is an optional feature, challenge yourself and give it a shot!)
-
+Sinatra Cactus App
+This is a CRUD, MVS application that uses Sinatra tracking cactus. The application gives users the ability to log and track cactus that they may be encountering for the first time.  The application allows users to login, signup, and logout.  A user can also create a cactus entry, see all entries, see their show page, and edit and delete only their entries.  
 
 Getting Started
-Git Clone
-Bundle Install
-Shotgun
+git clone git@github.com:1krisortiz1/sinatra-cactus-app.git
+bundle install
+shotgun
 
 Built With
-	• Sinatra
-	• ActiveRecord
-	• Sqlite
-	• RESTful routes
-	• Sessions
-	
+Sinatra
+Active Record
+Contributing
+Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
+
+Authors
+Kristin Ortiz
+
 License
-This project is licensed under the MIT License
+This project is licensed under the MIT License - see the LICENSE.md file for details
+
+Acknowledgments
+Corneal gem - Brian Emory
 
